@@ -11,6 +11,7 @@
   },
   "scripts": {
     "bower": "bower install",
+    "build:webpack": "webpack --mode production",
     "build:notebook": "node tools/build-main.js notebook",
     "build:tree": "node tools/build-main.js tree",
     "build:edit": "node tools/build-main.js edit",
@@ -26,8 +27,7 @@
     "build:css-ipython": "lessc --source-map --include-path='nbclassic/static/style' nbclassic/static/style/ipython.less nbclassic/static/style/ipython.min.css",
     "build:css-style": "lessc --source-map --include-path='nbclassic/static/style' nbclassic/static/style/style.less nbclassic/static/style/style.min.css",
     "build:css": "npm run build:css-ipython && npm run build:css-style",
-    "build": "npm run bower && npm run build:js && npm run build:css",
-    "build:webpack": "webpack --mode production",
+    "build": "npm run bower && npm run build:webpack && npm run build:js && npm run build:css",
     "build:watch": "npm run watch",
     "watch:css": "onchange 'nbclassic/static/**/*.less' -- npm run build:css",
     "watch:js": "onchange 'nbclassic/static/**/!(*.min).js' 'bower.json' -- npm run build:js",
